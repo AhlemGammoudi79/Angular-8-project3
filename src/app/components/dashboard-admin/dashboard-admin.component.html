@@ -1,0 +1,167 @@
+<div id="wrapper">
+  <!-- Sidebar -->
+
+  
+  <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar" >
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="background-color:#f07886; height: 80px;">
+      <div class="sidebar-brand-icon">
+        <img src="assets\imgAdmin\logo2.jpg" style="border-radius: 50%;width: 100px;height: 65px;max-height: 100% !important">
+      </div>
+      <div class="sidebar-brand-text mx-3" style="background-color: #f07886; color: black;"></div>
+    </a>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item active">
+      <a class="nav-link" href="index.html">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>tableau de bord</span></a>
+    </li>
+    <hr class="sidebar-divider">
+ 
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+        aria-expanded="true" aria-controls="collapseBootstrap">
+        <i class="fas fa-fw fa-table"></i>        <span>Utilisateur</span>
+      </a>
+      <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header"  >Utilisateur</h6>
+
+          <a class="collapse-item" (click)="assignComponent('TabAdminComponent')">Admins</a>
+          <a class="collapse-item" (click)="assignComponent('TabClientComponent')">Client</a>
+          <a class="collapse-item" (click)="assignComponent('TabFournisseurComponent')">Fournisseurs</a>
+
+        </div>
+      </div>
+    </li>
+    <hr class="sidebar-divider">
+
+
+    <li class="nav-item">
+      <a class="nav-link"  (click)="assignComponent('TabGiftComponent')">
+        <i class="fas fa-fw fa-columns"></i>
+        <span>Cadeaux</span>
+      </a>
+    </li>
+
+    <hr class="sidebar-divider">
+    <li class="nav-item">
+      <a class="nav-link"  (click)="assignComponent('TabContactComponent')">
+        <i class="fas fa-fw fa-columns"></i>
+        <span>Contacts</span>
+      </a>
+    </li>
+    <hr class="sidebar-divider">
+    <li class="nav-item">
+      <a class="nav-link"  (click)="assignComponent('TabOrdersComponent')">
+        <i class="fas fa-fw fa-columns"></i>
+        <span>Commandes</span>
+      </a>
+    </li>
+    <hr class="sidebar-divider">
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
+        aria-controls="collapsePage">
+        <i class="fab fa-fw fa-wpforms"></i>
+        <span>Pages</span>
+      </a>
+      <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Acceuil</h6>
+          <a class="collapse-item" href="login.html">Gallerie</a>
+          <a class="collapse-item" href="register.html">Contact</a>
+          <a class="collapse-item" href="404.html">A propos</a>
+        </div>
+      </div>
+    </li>
+    <hr class="sidebar-divider">
+  </ul>
+  <!-- Sidebar -->
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+    
+      <!-- Container Fluid-->
+      <div class="container-fluid" id="container-wrapper">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0 text-gray-800">tableau de bord</h1>
+
+          <ol class="breadcrumb">
+
+         <li>  
+           
+          <form #SearchForm="ngForm" (ngSubmit)="search()">
+            <div class="row">
+          <input type="search" class="form-control" placeholder="Search" aria-controls="dataTable" style="width: 150px;height: 32px;border:2px solid #f4576a;"   [(ngModel)]="user.searchValue" [ngModelOptions]="{standalone:true}">
+          <button type="submit"  class="icon_search search-switch" style="background-color: #f4576a;color:#fff;width: 30px;height: 32px; border-radius: 50%;border-color:rgb(250, 151, 167) ;margin-left: 0.1cm;"></button>
+        </div>
+           </form>
+        </li>
+         <li>  <button type="button" class="btn btn-danger btn-sm" style="margin-left:0.4cm;background-color: #f4576a;" (click)="assignComponent('AddAdminComponent')" > + Add Admin </button></li>
+          <li>  <button type="button" class="btn btn-danger btn-sm" style="margin-left: 0.2cm;background-color: #f4576a;" (click)="assignComponent('SignupComponent')" > + Add Client </button></li>
+            <li>   <button type="button" class="btn btn-danger btn-sm" style="margin-left: 0.2cm;background-color: #f4576a;" (click)="assignComponent('AddFournisseurComponent')" > + Add Fournisseur </button></li>
+    
+          </ol>
+        </div>
+
+        <div class="row">
+          <!-- Datatables -->
+       <!-- admin table -->
+
+
+
+       <div class="col-lg-12"   *ngIf="!isDesplay">
+   
+      <ng-container  *ngComponentOutlet="component"></ng-container>
+      </div>
+
+      <div class="card mb-4"  *ngIf="isDesplay" style="margin-left: 2cm;">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+        </div>
+        <div class="table-responsive p-3">
+          <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+              <div class="row"><div class="col-sm-12 col-md-6">
+                  <div class="dataTables_length" id="dataTable_length">
+                    
+                        </div>
+                      </div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter">
+                      </div></div></div><div class="row"><div class="col-sm-12">
+                          <table class="table align-items-center table-flush dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info">
+            <thead class="thead-light">
+              <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100.953px;">First Name</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100.953px;">Last Name</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 130.953px;">Email </th>
+                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 130.953px;">Role </th>
+                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 30.4688px;">Tel</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 200.781px;">Action</th>
+                </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                  <th rowspan="1" colspan="1">Number</th>
+                  <th rowspan="1" colspan="1">First Name</th>
+                  <th rowspan="1" colspan="1">Last Name</th>
+                  <th rowspan="1" colspan="1">Email</th>
+                  <th rowspan="1" colspan="1">Role</th>
+                  <th rowspan="1" colspan="1">Actions</th>
+                </tr>
+            </tfoot>
+            <tbody>
+            <tr role="row" class="odd" *ngFor="let a of users">
+    
+                <td>{{a.firstName}}</td>
+                <td>{{a.lastName |lowercase}}</td>
+                <td>{{a.email}}</td>
+                <td>{{a.role}}</td>
+                <td>{{a.tel}}</td>
+                <td>
+                <a  class="btn btn-danger" (click)="deleteUser(a._id)" style="color: red;">
+                  <i class="fas fa-trash"></i>
+                </a>
+                </td>
+              </tr>
+    
+           
+            </tbody>
+          </table></div></div>
+    </div></div></div></div></div></div></div></div>

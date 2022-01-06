@@ -1,0 +1,50 @@
+
+<section>
+    <div class="container" style="margin-top: 2cm;">
+
+<div class="row property__gallery">
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 mix women"
+      *ngFor="let g of gifts"
+    >
+      <div class="product__item">
+        <div class="product__item__pic set-bg">
+          <img class="product__item__pic set-bg" [src]="g.img" />
+
+          <div class="label sale" *ngIf="g.category == 'solde'">Solde</div>
+          <div class="label new" *ngIf="g.category != 'solde'">New</div>
+
+          <ul class="product__hover">
+            <li>
+              <img
+                [src]="g.img"
+                class="image-popup"
+                style="margin-left: 0.15cm"
+              />
+            </li>
+            <li>
+              <a (click)="displayGift(g._id)"><i class="far fa-eye"></i> </a>
+            </li>
+            <li>
+              <a (click)="validateCommande(g)"
+                ><span class="icon_bag_alt"></span
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="product__item__text">
+          <h6>
+            <a (click)="displayGift(g._id)">{{ g.name }}</a>
+          </h6>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <div class="product__price">{{ g.prix }} Dt</div>
+        </div>
+      </div>
+    </div>
+  </div></div></section>

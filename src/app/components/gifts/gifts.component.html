@@ -1,0 +1,309 @@
+
+
+<!-- Product Section Begin -->
+<!-- <section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="section-title">
+                    <h4>New product</h4>
+                </div>
+            </div>
+         
+        </div>
+        <div class="row property__gallery">
+            <div class="col-lg-3 col-md-4 col-sm-6 mix women" *ngFor ="let g of tabGifts">
+                <div class="product__item">
+					
+
+                    <div class="product__item__pic set-bg">
+                        <img class="product__item__pic set-bg" [src]="g.img">
+
+                        <div class="label sale" *ngIf="g.category == 'solde'">Solde</div>
+                        <div class="label new" *ngIf="g.category != 'solde'" >New</div>
+
+                        <ul class="product__hover">
+                            <li><img [src]='g.img' class="image-popup" style="margin-left: 0.3cm;"></li>
+                            <li><a  (click)="displayGift(g._id)"><i class="far fa-eye"></i>
+                                
+                                </a></li>
+                            <li><a  (click)="validateCommande(g)"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a  (click)="displayGift(g._id)">{{g.name}}</a></h6>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="product__price">{{g.prix}} Dt</div>
+
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</section> -->
+<!-- Product Section End -->
+
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="section-title">
+                    <h4>Nouveau Cadeaux</h4>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <ul class="filter__controls">
+                    <li class="" data-filter="*">Tout</li>
+                    <li data-filter=".women" class="">Femme</li>
+                    <li data-filter=".men" class="">Homme</li>
+                    <li data-filter=".cosmetic" class="">Enfant</li>
+
+                    <li data-filter=".accessories">Bébé</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row property__gallery" id="MixItUpD06A0B" >
+            <div class="col-lg-3 col-md-4 col-sm-6 mix women" style="display: none;" *ngFor ="let f of femmeTab">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg">
+                      <img class="product__item__pic set-bg" [src]="f.img" />
+          
+                      <div class="label sale" *ngIf="f.category == 'solde'">Solde</div>
+                      <div class="label new" *ngIf="f.category != 'solde'">New</div>
+          
+                      <ul class="product__hover">
+                        <li>
+                          <img
+                            [src]="f.img"
+                            class="image-popup"
+                            style="margin-left: 0.3cm"
+                          />
+                        </li>
+                        <li>
+                          <a (click)="displayGift(f._id)"><i class="far fa-eye"></i> </a>
+                        </li>
+                        <li>
+                          <a (click)="validateCommande(f)"
+                            ><span class="icon_bag_alt"></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a (click)="addlikes(f._id)"
+                          ><span class="icon_heart_alt"></span
+                        ></a>
+                          
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="product__item__text">
+                      <h6>
+                        <a (click)="displayGift(f._id)">{{f.name}}</a>
+                      </h6>
+                      <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <div class="product__price">{{f.prix }} Dt</div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix men" style="display: none;" *ngFor ="let h of hommeTab">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg">
+                      <img class="product__item__pic set-bg" [src]="h.img" />
+          
+                      <div class="label sale" *ngIf="h.category == 'solde'">Solde</div>
+                      <div class="label new" *ngIf="h.category != 'solde'">New</div>
+          
+                      <ul class="product__hover">
+                        <li>
+                          <img
+                            [src]="h.img"
+                            class="image-popup"
+                            style="margin-left: 0.3cm"
+                          />
+                        </li>
+                        <li>
+                          <a (click)="displayGift(h._id)"><i class="far fa-eye"></i> </a>
+                        </li>
+                        <li>
+                          <a (click)="validateCommande(h)"
+                            ><span class="icon_bag_alt"></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a (click)="addlikes(h._id)"
+                          ><span class="icon_heart_alt"></span
+                        ></a>
+                          
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="product__item__text">
+                      <h6>
+                        <a (click)="displayGift(h._id)">{{h.name}}</a>
+                      </h6>
+                      <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <div class="product__price">{{h.prix }} Dt</div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix accessories" style="display: none;" *ngFor ="let b of BebeTab">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg">
+                      <img class="product__item__pic set-bg" [src]="b.img" />
+          
+                      <div class="label sale" *ngIf="b.category == 'solde'">Solde</div>
+                      <div class="label new" *ngIf="b.category != 'solde'">New</div>
+          
+                      <ul class="product__hover">
+                        <li>
+                          <img
+                            [src]="b.img"
+                            class="image-popup"
+                            style="margin-left: 0.3cm"
+                          />
+                        </li>
+                        <li>
+                          <a (click)="displayGift(b._id)"><i class="far fa-eye"></i> </a>
+                        </li>
+                        <li>
+                          <a (click)="validateCommande(b)"
+                            ><span class="icon_bag_alt"></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a (click)="addlikes(b._id)"
+                          ><span class="icon_heart_alt"></span
+                        ></a>
+                          
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="product__item__text">
+                      <h6>
+                        <a (click)="displayGift(b._id)">{{b.name}}</a>
+                      </h6>
+                      <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <div class="product__price">{{b.prix }} Dt</div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic" style="display: none;" *ngFor ="let e of enfantTab">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg">
+                      <img class="product__item__pic set-bg" [src]="e.img" />
+          
+                      <div class="label sale" *ngIf="e.category == 'solde'">Solde</div>
+                      <div class="label new" *ngIf="e.category != 'solde'">New</div>
+          
+                      <ul class="product__hover">
+                        <li>
+                          <img
+                            [src]="e.img"
+                            class="image-popup"
+                            style="margin-left: 0.3cm"
+                          />
+                        </li>
+                        <li>
+                          <a (click)="displayGift(e._id)"><i class="far fa-eye"></i> </a>
+                        </li>
+                        <li>
+                          <a (click)="validateCommande(e)"
+                            ><span class="icon_bag_alt"></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a (click)="addlikes(e._id)"
+                          ><span class="icon_heart_alt"></span
+                        ></a>
+                          
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="product__item__text">
+                      <h6>
+                        <a (click)="displayGift(e._id)">{{e.name}}</a>
+                      </h6>
+                      <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <div class="product__price">{{e.prix }} Dt</div>
+                    </div>
+                  </div>
+            </div>
+         
+            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic" *ngFor ="let g of giftst" >
+                <div class="product__item">
+                    <div class="product__item__pic set-bg">
+                      <img class="product__item__pic set-bg" [src]="g.img" />
+          
+                      <div class="label sale" *ngIf="g.category == 'solde'">Solde</div>
+                      <div class="label new" *ngIf="g.category != 'solde'">New</div>
+          
+                      <ul class="product__hover">
+                        <li>
+                          <img
+                            [src]="g.img"
+                            class="image-popup"
+                            style="margin-left: 0.3cm"
+                          />
+                        </li>
+                        <li>
+                          <a (click)="displayGift(g._id)"><i class="far fa-eye"></i> </a>
+                        </li>
+                        <li>
+                          <a (click)="validateCommande(g)"
+                            ><span class="icon_bag_alt"></span
+                          ></a>
+                        </li>
+                        <li>
+                          <a (click)="addlikes(g._id)"
+                          ><span class="icon_heart_alt"></span
+                        ></a>
+                          
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="product__item__text">
+                      <h6>
+                        <a (click)="displayGift(g._id)">{{g.name}}</a>
+                      </h6>
+                      <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <div class="product__price">{{g.prix }} Dt</div>
+                    </div>
+                  </div>
+            </div>
+        </div></div></section>

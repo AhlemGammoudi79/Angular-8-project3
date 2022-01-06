@@ -1,0 +1,147 @@
+
+<section class="product-details spad">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8">
+              <div class="product__details__pic" tabindex="1">
+                <div class="row">
+
+                <div class="col-lg-3">
+
+                <img [src]="user.img" width="170px" height="150px">
+</div> <div class="col-lg-9">
+                    <div class="blog__comment__item__text">
+                      <h5>{{user.firstName}} {{user.lastName}} <button style="background-color: rgb(33, 223, 8);border-radius: 50%;border-color: rgb(33, 223, 8);width: 10px;height: 17px;" *ngIf="user.statut== 'confirmé' && user.role=='fournisseur'" ></button>
+                        <button style="background-color: red;border-radius: 50%;border-color: red;width: 10px;height: 17px;" *ngIf="user.statut== 'en attent' && user.role=='fournisseur'" ></button></h5>
+                      <h4>{{user.tel}}</h4>
+                      <h4>{{user.ville}}</h4>
+                      <h4>{{user.dateOfBirth | date}}</h4>
+
+                      <p>Duis voluptatum. Id vis consequat consetetur dissentiet, ceteros commune perpetua
+                      mei et. Simul viderer facilisis egimus tractatos splendi.</p>
+                    </div></div>
+                  </div>
+                 
+              </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="cart__total__procced">
+              <button href="#" class="primary-btn" routerLink="addGift" style="width:270px;">Ajouter un Cadeau</button>
+          </div>
+          </div>
+          <div class="col-lg-12">
+              <div class="product__details__tab">
+                  <ul class="nav nav-tabs" role="tablist">
+                      <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">Mes Cadeaux publier</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">Mes Commandes</a>
+                      </li>
+                   
+                  </ul>
+                  <div class="tab-content">
+                      <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                          <h6>Description</h6>
+                          <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6"  *ngFor="let m of myGifts">
+                            <div class="product__item">
+                                <img class="product__item__pic set-bg" [src]="m.img" style="background-image: url(img/product/related/rp-1.jpg);width:300px;height: 200px;">
+                                
+                                    
+                                
+                                <div class="product__item__text">
+                                    <h6>{{m.name}} | Prix {{m.prix}} Dt</h6>
+                                    <h6>
+                                        <button type="button" class="btn btn-success btn-sm" (click)="displayGift(m._id)" style="margin-right: 0.1cm;" >Display</button>
+                                        <button type="button" class="btn btn-warning btn-sm" (click)="editGift(m._id)" style="margin-right: 0.1cm;">Modifier</button>
+
+                                        <button type="button" class="btn btn-danger btn-sm"  (click)="deleteGift(m._id)">Supprimer</button>
+                                    </h6>
+                                    
+                                    <div class="product__price"> </div>
+                                </div>
+                            </div>
+                       </div></div>
+                      </div>
+                      <div class="tab-pane" id="tabs-2" role="tabpanel">
+                          <h6>Mes Commandes</h6>
+                          <div class="row">
+                            <div class="col-lg-12">
+                                <div class="shop__cart__table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Nom Cadeau</th>
+                                                <th>Nom Client</th>
+                                                <th>Tel</th>
+                                                <th>Prix</th>
+                                                <th>Quantite</th>
+
+                                                <th>Total</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let c of myCommandes" >
+                                                <ng-container *ngFor="let g of gifts" >
+                                                    <td class="cart__total"  *ngIf="c.idGift == g._id">
+                                                        <img [src]="g.img" alt="" width="100px" >
+                                                   
+                                                    </td></ng-container>
+                                                    <ng-container *ngFor="let g of gifts">
+                                                        <td class="cart__total" *ngIf="c.idGift == g._id" >{{g.name}}</td>
+                                                    
+                                                    </ng-container>
+                                                <ng-container *ngFor="let u of users">
+                                                <td class="cart__total" *ngIf="c.idClient == u._id" >{{u.firstName}} {{u.lastName}}</td>
+                                                </ng-container>
+                                                <ng-container *ngFor="let u of users">
+                                                    <td class="cart__total" *ngIf="c.idFornisseur == u._id" >{{u.tel}}</td></ng-container>
+                                                    <ng-container *ngFor="let g of gifts">
+                                                        <td class="cart__total" *ngIf="c.idGift == g._id"  >{{g.prix}} Dt</td></ng-container>
+                                                         
+
+
+
+                                                            <td class="cart__total">{{c.Qty}}</td>
+                                                            <ng-container *ngFor="let g of gifts">
+                                                            <td class="cart__total" *ngIf="c.idGift == g._id">{{c.Qty * g.prix}}</td></ng-container>
+                                                                                                             
+                                                <td class="cart__close"><span class="icon_close" (click)="deleteOrder(c._id)"></span></td>
+  
+                                            </tr>
+                                          
+                                        </tbody>
+                                    </table>
+                                   
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                            
+                            </div>
+                            <div class="col-lg-4 offset-lg-2">
+                                <div class="cart__total__procced">
+                                    <h6>Panier total</h6>
+                                    <ul>
+                                        <li>Total <span> <h5>{{subTotal}}</h5></span></li>
+                                    </ul>
+                                    <a class="primary-btn"  (click)="getPdf()">Facture</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      
+                   
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+  </div>
+</section>

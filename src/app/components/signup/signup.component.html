@@ -1,0 +1,96 @@
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="./index.html"><i class="fa fa-home"></i> Acceuil</a>
+                    <span> Inscription</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="checkout spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h6 class="coupon__link"><span class="icon_tag_alt"></span>Inscription</h6>
+            </div>
+        </div>
+        <form [formGroup]="signupForm" class="checkout__form">
+            <div class="row"  style="margin-left: 7cm;">
+                <div class="col-lg-8">
+                    <h5>Inscription</h5>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Nom <span>*</span></p>
+                                <input type="text" formControlName="firstName">
+
+                            </div>
+                        </div>
+                        <div *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched) ">
+                            <div *ngIf="signupForm.controls['firstName'].errors.required" class="text-danger">first Name is required</div>
+                            <div *ngIf="signupForm.controls['firstName'].errors.minlength" class="text-danger" >first Name must have at least 3 characters</div>
+                             </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Prénom <span>*</span></p>
+                                <input type="text"  formControlName="lastName">
+                            </div>
+                        </div>
+                        <div *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched) ">
+                            <div *ngIf="signupForm.controls['lastName'].errors.required" class="text-danger">Password is required</div>
+                            <div *ngIf="signupForm.controls['lastName'].errors.minlength" class="text-danger" >pass must have at least 5 characters</div>
+                             </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Email <span>*</span></p>
+                                <input type="email" formControlName="email">
+                            </div>
+                        </div>
+                        <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched) ">
+                            <div *ngIf="signupForm.controls['email'].errors.required" class="text-danger">Email is required</div>
+                            <div *ngIf="signupForm.controls['email'].errors.email" class="text-danger" >I  nvalid Email</div>
+                             </div>
+                    
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Mot de passe<span>*</span></p>
+                                <input type="password" formControlName="password">
+                            </div>
+                        </div>
+                        <div *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched) ">
+                            <div *ngIf="signupForm.controls['password'].errors.required" class="text-danger">password is required</div>
+                            <div *ngIf="signupForm.controls['password'].errors.minlength" class="text-danger" >password must have at least 8 characters</div>
+                             </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Confirm Mot de passe<span>*</span></p>
+                                <input type="password" formControlName="confirmPasword">
+                            </div>
+                        </div>
+                        <div *ngIf="signupForm.controls['confirmPasword'].invalid &&
+                        (signupForm.controls['confirmPasword'].dirty ||
+                        signupForm.controls['confirmPasword'].touched)">
+                        <div
+                        *ngIf="signupForm.controls['confirmPasword'].errors.mustMatch" class="text-danger">
+                        Confirmer  le mot de passe doit correspondre au mot de passe
+                        </div>
+                    </div>
+                  
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>tel<span>*</span></p>
+                                <input type="tel"  formControlName="tel">
+                            </div>
+                        </div>
+                        <div *ngIf="signupForm.controls['tel'].invalid && (signupForm.controls['tel'].dirty || signupForm.controls['tel'].touched) ">
+                            <div *ngIf="signupForm.controls['tel'].errors.required" class="text-danger">Tel is required</div>
+                            <div *ngIf="signupForm.controls['tel'].errors.minlength" class="text-danger" >Tel must have at least 8 numbers</div>
+                            <div *ngIf="signupForm.controls['tel'].errors.maxlength" class="text-danger" >Tel must have max 13 numbers</div>
+     
+                        </div>
+                        <button type="submit" class="site-btn" style="margin-left: 2cm;width: 400px;"  (click)="signup(signupForm.value)">nscription</button>
+
+                       </div></div></div></form></div></section>

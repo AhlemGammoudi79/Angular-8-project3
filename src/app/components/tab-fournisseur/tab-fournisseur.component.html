@@ -1,0 +1,62 @@
+<div class="card mb-4">
+  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+    <h6 class="m-0 font-weight-bold text-primary">Fournisseurs</h6>
+  </div>
+  <div class="table-responsive p-3">
+    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+        <div class="row"><div class="col-sm-12 col-md-6">
+            <div class="dataTables_length" id="dataTable_length">
+              </div></div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter">
+              </div></div></div><div class="row"><div class="col-sm-12">
+                    <table class="table align-items-center table-flush dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info">
+      <thead class="thead-light">
+        <tr role="row">
+          <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100.953px;">First Name</th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100.953px;">Last Name</th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 130.953px;">Email </th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 30.4688px;">Tel</th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 30.4688px;">Statut</th>
+          <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 230.781px;">Action</th>
+          </tr>
+      </thead>
+      <tfoot>
+        <tr>
+            <th rowspan="1" colspan="1">First Name</th>
+            <th rowspan="1" colspan="1">Last Name</th>
+            <th rowspan="1" colspan="1">Email</th>
+            <th rowspan="1" colspan="1">Tel</th>
+            <th rowspan="1" colspan="1">Statut</th>
+            <th rowspan="1" colspan="1">Actions</th>
+          </tr>
+      </tfoot>
+      <tbody>
+      <tr role="row" class="odd" *ngFor="let f of tabFournisseur">
+
+          <td>{{f.firstName}}</td>
+          <td>{{f.lastName |lowercase}}</td>
+          <td>{{f.email}}</td>
+          <td>{{f.tel}}</td>
+          <td>{{f.statut }}</td>
+
+          <td>
+            <a  class="btn btn-success" (click)="confirmFornisseur(f)" style="color: white;">
+              <i class="fas fa-check"></i>
+            </a>
+            <a  class="btn btn-warning" (click)="displayUser(f._id)" style="color: white;">
+              <i class="far fa-eye"></i>
+            </a>
+            <a  class="btn btn-danger" (click)="deleteUser(f._id)" style="color: white;">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      
+              
+ 
+     
+     
+      </tbody>
+    </table></div></div>
+
+  </div>
+</div>

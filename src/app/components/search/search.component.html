@@ -1,0 +1,269 @@
+
+<section>
+  <div class="container">
+    <div class="row"   style="background-image: url(assets/n.jpg);
+    background-repeat: no-repeat;
+    min-height: 450px;
+    padding-top:0;
+   min-width: 1200px;
+   margin-left: -1.5cm;
+  
+    ">
+
+                  <p style="    color: #645e63;font-size: 40px
+            
+                  ;margin-top: 2.5cm; margin-bottom: 0cm;margin-left: 11.5cm;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Je cherche un cadeau
+            </p>
+      <form #SearchForm="ngForm" (ngSubmit)="search()" style="margin-top:-2.5cm;margin-left: 4cm;">
+        <div class="row">
+          <div class="col-lg-3 col-md-3">
+            <div class="checkout__form__input">
+              <p  style="    font-weight: 700;
+              line-height: 1.3333;">Catégorie<span>*</span></p>
+              <select
+                name="pets"
+                [(ngModel)]="gift.category"
+                [ngModelOptions]="{ standalone: true }"
+                style="
+                  width: 200px;
+                  height: 50px;
+                  border-color: rgb(189, 186, 186);
+                  
+                  border: 1px solid rgb(189, 186, 186);
+                "
+              >
+                <option value="">--Select une Catégorie--</option>
+                <option value="Cadeaux personnalisés">
+                  Cadeaux personnalisés
+                </option>
+                <option value="Déco et Intérieur">Déco & Intérieur</option>
+                <option value="Extérieur, Loisirs & Mode de vie">
+                  Extérieur, Loisirs & Mode de vie
+                </option>
+                <option value="Boire & Manger">Boire & Manger</option>
+                <option value="Vêtements Bijoux et  Accessoires">
+                  Vêtements, Bijoux & Accessoires
+                </option>
+                <option value="Soirée & Fiesta">Soirée & Fiesta</option>
+                <option value="Gadget & Technologie">
+                  Gadget & Technologie
+                </option>
+                <option value="solde">SOLDES</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-3">
+            <div class="checkout__form__input">
+              <p style="    font-weight: 700;
+              line-height: 1.3333;">Pour quelle occasion ?<span>*</span></p>
+              <select
+                name="pets"
+                [(ngModel)]="gift.occasion"
+                [ngModelOptions]="{ standalone: true }"
+                style="
+                  width: 200px;
+                  height: 50px;
+                  border-color: rgb(189, 186, 186);
+                  
+                  border: 1px solid rgb(189, 186, 186);
+                "
+              >
+                <option value="">--Select une Occasion--</option>
+                <option value="fête des Mères">fête des Mères</option>
+                <option value="Fête des Pères">Fête des Pères</option>
+                <option value="Déclaration d'Amour">Déclaration d'Amour</option>
+                <option value="Saint-Valentinr">Saint-Valentin</option>
+                <option value="Félicitation">Félicitation</option>
+                <option value="Mariage">Mariage</option>
+                <option value="Remerciement">Remerciement</option>
+                <option value="Anniversaire de Mariage">
+                  Anniversaire de Mariage
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-3">
+            <div class="checkout__form__input">
+              <p  style="    font-weight: 700;
+              line-height: 1.3333;">Pour Qui ?<span>*</span></p>
+              <select
+                name="pets"
+                [(ngModel)]="gift.destinataire"
+                [ngModelOptions]="{ standalone: true }"
+                style="
+                  width: 200px;
+                  height: 50px;
+                  border-color: rgb(189, 186, 186);
+                  
+                  border: 1px solid rgb(189, 186, 186);
+                "
+              >
+                <option value="">--Select un Destinataire--</option>
+                <option value="Homme">Homme</option>
+                <option value="Femme">Femme</option>
+                <option value="Parent">Parent</option>
+                <option value="Grand-pére">Grand-pére</option>
+                <option value="Grand-mére">Grand-mére</option>
+                <option value="Couple">Couple</option>
+
+                <option value="Bébé">Bébé</option>
+                <option value="Enfant">Enfant</option>
+                <option
+                  value="Maitresse & maitre
+                                "
+                >
+                  Maitresse & maitre
+                </option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-3">
+            <div class="checkout__form__input">
+
+            <p  style="    font-weight: 700;
+            line-height: 1.3333;">Quel est le budget ?<span>*</span></p>
+            <input (keyup)="onKey($event)"
+                id="min"
+              type="number"
+placeholder="Min"              style="
+                width: 100px;
+                height: 50px;
+             
+                border-color: rgb(189, 186, 186);
+                  
+                  border: 1px solid rgb(189, 186, 186);
+              "
+            />
+            <input
+            (keyup)="onKey2($event)"
+              type="number"
+              placeholder="Max"    
+              style="
+                width: 100px;
+                height: 50px;
+                border-color: rgb(189, 186, 186);
+                  
+                  border: 1px solid rgb(189, 186, 186);
+              "
+            />
+
+        
+           
+      
+</div>
+          </div>
+    
+        </div>
+        <br>
+      
+        <button type="submit" class="btn btn-danger" style="    color: #fff;
+        background-color: #f4576a;;margin-left:9.5cm;display: block;">Je lance ma recherche</button>
+
+      </form>
+    </div>
+
+    <div class="row property__gallery" *ngIf="isDesplay">
+      <div class="col-lg-3 col-md-4 col-sm-6 mix women" *ngFor="let s of gifts ">
+        <div class="product__item">
+          <div class="product__item__pic set-bg">
+            <img class="product__item__pic set-bg" [src]="s.img" />
+
+            <div class="label sale" *ngIf="s.category == 'solde'">Solde</div>
+            <div class="label new" *ngIf="s.category != 'solde'">New</div>
+
+            <ul class="product__hover">
+              <li>
+                <img
+                  [src]="s.img"
+                  class="image-popup"
+                  style="margin-left: 0.3cm"
+                />
+              </li>
+              <li>
+                <a (click)="displayGift(s._id)"><i class="far fa-eye"></i> </a>
+              </li>
+              <li>
+                <a (click)="validateCommande(s)"
+                  ><span class="icon_bag_alt"></span
+                ></a>
+              </li>
+              <li>
+                <a (click)="addlikes(s._id)"
+                ><span class="icon_heart_alt"></span
+              ></a>
+                
+              </li>
+            </ul>
+          </div>
+          <div class="product__item__text">
+            <h6>
+              <a (click)="displayGift(s._id)">{{ s.name }}</a>
+            </h6>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <div class="product__price">{{ s.prix }} Dt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row property__gallery" *ngIf="!isDesplay">
+      <div
+        class="col-lg-3 col-md-4 col-sm-6 mix women"
+        *ngFor="let g of tabGifts"
+      >
+        <div class="product__item">
+          <div class="product__item__pic set-bg">
+            <img class="product__item__pic set-bg" [src]="g.img" />
+
+            <div class="label sale" *ngIf="g.category == 'solde'">Solde</div>
+            <div class="label new" *ngIf="g.category != 'solde'">New</div>
+
+            <ul class="product__hover">
+              <li>
+                <img
+                  [src]="g.img"
+                  class="image-popup"
+                  style="margin-left: 0.15cm"
+                />
+              </li>
+              <li>
+                <a (click)="displayGift(g._id)"><i class="far fa-eye"></i> </a>
+              </li>
+              <li>
+                <a (click)="validateCommande(g)"
+                  ><span class="icon_bag_alt"></span
+                ></a></li>
+              <li>
+                <a (click)="addlikes(g._id)"
+                ><span class="icon_heart_alt"></span
+              ></a>
+                
+              </li>
+            </ul>
+          </div>
+          <div class="product__item__text">
+            <h6>
+              <a (click)="displayGift(g._id)">{{ g.name }}</a>
+            </h6>
+            <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <div class="product__price">{{ g.prix }} Dt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

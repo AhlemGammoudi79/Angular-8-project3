@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-lg-12 mb-4">
+      <!-- Simple Tables -->
+      <div class="card">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h5 class="m-0 font-weight-bold text-primary">Cadeaux</h5>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>Image</th>
+                <th>Name Cadeau</th>
+                <th>Catégorie</th>
+                <th>Occasion</th>
+                <th>Destinataire</th>
+                <th>Age</th>
+                <th>Prix</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+        
+                <tr *ngFor="let g of gifts">
+                    <td><img [src]="g.img" alt="" style="width: 50px;"></td>
+              
+                <td>{{g.name}}</td>
+                <td>{{g.category}}</td>
+                <td>{{g.occasion}}</td>
+                <td>{{g.destinataire}}</td>
+                <td>{{g.age}}</td>
+                <td>{{g.prix}}</td>
+                <td>
+                  <a  class="btn btn-success" (click)="displayGift(g._id)" style="color: white;">
+                    <i class="far fa-eye"></i>
+                  </a>
+     
+                  <a  class="btn btn-danger" (click)="deleteGift(g._id)" style="color: white;">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </td>
+              </tr>
+         
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,66 @@
+<section class="shop-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shop__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Fournisseur</th>
+                                <th>Tel</th>
+                                <th>Prix</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let m of myOrders">
+                                <ng-container *ngFor="let g of gifts">
+                                <td class="cart__price" *ngIf=" g._id == m.idGift ">
+                                  
+                                    <h6>  <img [src]="g.img" alt="" width="70px"> {{g.name}}  </h6>
+                                  
+                                </td>
+                                </ng-container>
+                                <ng-container *ngFor="let z of users">
+                                <td  class="cart__quantity" *ngIf="z._id == m.idFornisseur">{{z.firstName}} {{z.lastName}}</td></ng-container>
+
+                                <ng-container *ngFor="let z of users">
+                                    <td  class="cart__quantity" *ngIf="z._id == m.idFornisseur">{{z.tel}}</td></ng-container>
+    
+                                  
+                                <ng-container *ngFor="let g of gifts">
+                                <td class="cart__quantity" *ngIf=" g._id == m.idGift ">{{g.prix}} Dt</td>
+                            </ng-container>
+                                <td class="cart__quantity">
+                                    <div class="pro-qty">
+                                        <input type="text"  value="{{m.Qty}}">
+                                    </div>
+                                </td>
+                                <ng-container *ngFor="let g of gifts">
+
+                                <td class="cart__total" *ngIf=" g._id == m.idGift ">{{g.prix * m.Qty}}</td></ng-container>
+
+                                <td class="cart__quantity"  ><span><i class="fas fa-pencil-alt"> </i> </span> | 
+                                      <span> <i class="fas fa-trash-alt" (click)="deleteOrder(m._id)"> </i> </span>
+                                    </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" ></div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-left: 21cm;">
+                <div class="cart__btn">
+                    <a  routerLink="search">Continuer vos achats</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

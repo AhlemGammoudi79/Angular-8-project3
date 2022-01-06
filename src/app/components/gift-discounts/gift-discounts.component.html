@@ -1,0 +1,79 @@
+<section class="trend spad">
+    <div class="container">
+
+     
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>Cadeaux personnalisés</h4>
+                    </div>
+                    <div class="trend__item"  *ngFor ="let c of cadeauPersonalise ">
+                        <div class="trend__item__pic">
+                            <img [src]="c.img" alt=""  width="100px" height="100px" (click)="displayGift(c._id)">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6 (click)="displayGift(c._id)">{{c.name}}</h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product__price">{{c.prix}}</div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4> Déco & Intérieur</h4>
+                    </div>
+                    <div class="trend__item"  *ngFor ="let d of cadeauDeco">
+                        <div class="trend__item__pic">
+                            <img [src]="d.img" alt="" width="100px" height="100px" (click)="displayGift(d._id)">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6 (click)="displayGift(d._id)">{{d.name}}</h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product__price">{{d.prix}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>Vêtements & Bijoux</h4>
+                    </div>
+                    <div class="trend__item"  *ngFor ="let v of soldeVetement" >
+                        <div class="trend__item__pic">
+                            <img [src]="v.img" alt=""  width="100px" height="100px" (click)="displayGift(v._id)">
+                        </div>
+                        <div class="trend__item__text">
+                            <h6 (click)="displayGift(v._id)">{{v.name}}</h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product__price">{{v.prix}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

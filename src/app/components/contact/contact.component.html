@@ -1,0 +1,45 @@
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="./index.html"><i class="fa fa-home"></i>Acceuil</a>
+                    <span>Contactez-nous</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="contact spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="contact__content">
+                    <div class="contact__address">
+                        <h5>Informations de contact</h5>
+                        <ul>
+                           <br><br>
+                            <li>
+                                <h6><i class="fa fa-headphones"></i>Email</h6>
+                                <p>idéeCadeau79@gmail.com</p>
+                            </li>
+                            <br><br>
+                        </ul>
+                    </div>
+                    <div class="contact__form">
+                        <h5>Envoyer Message</h5>
+                        <form #addmessageForm="ngForm" (ngSubmit)="addMessage()">
+                            <input type="text" placeholder="Name" [(ngModel)]="contact.nom" [ngModelOptions]="{standalone:true}">
+                            <input type="email" placeholder="Email" [(ngModel)]="contact.email" [ngModelOptions]="{standalone:true}">
+                            <textarea placeholder="Message" [(ngModel)]="contact.message" [ngModelOptions]="{standalone:true}"></textarea>
+                            <button type="submit" class="site-btn">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="contact__map">
+                   
+                        <iframe width="700" height="780" src="https://maps.google.com/maps?width=700&amp;height=780&amp;hl=en&amp;q=tunisie+(Titre)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="http://www.googlemapsgenerator.com/zh/">googlemapsgen (zh)</a> & <a href="http://www.mysmiley.net">smileys</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
+           </div></div></div></section>
+     

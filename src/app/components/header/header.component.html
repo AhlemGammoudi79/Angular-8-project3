@@ -1,0 +1,126 @@
+ <!-- Header Section Begin -->
+ <header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-2">
+                <div class="header__logo">
+                    <a href="assets/./index.html"><img src="assets/img/logo.PNG" alt="" height="55px" width="500px"></a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7" style="margin-top: 0.35cm;">
+                <nav class="header__menu">
+                    <ul>
+                        <li class="active"><a routerLink="">Acceuil</a></li>
+                        <li><a  routerLink="search">Galerie</a></li>
+                        <li><a  routerLink="about">A propos</a></li>
+                        <li><a  routerLink="contact">Contact</a></li>
+                        <li><a routerLink="dashboardAdmin" *ngIf="connectedUser.role == 'admin'">Dashborad Admin</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__right">
+                    <div class="header__right__auth">
+                        <a  data-toggle="modal" data-target="#myModal"  *ngIf="connectedUser==''" style="margin-top:-0.4cm">Connexion</a>
+                        
+                        
+                        <a     *ngIf="connectedUser.role == 'client' ||
+                        connectedUser.role == 'fournisseur' || connectedUser.role == 'admin'" (click)="logOut()" (click)="logOut()"   >Déconnexion</a>
+                    </div>
+                    <ul class="header__right__widget">
+                        <li><span class="icon_search search-switch"></span></li>
+                        <li><a routerLink="like"><span class="icon_heart_alt"></span>
+                            <div class="tip">0</div>
+                        </a></li>
+                        <li><a   routerLink="basket"  ><span class="icon_bag_alt"></span>
+                            <div class="tip" style="color: white;" >{{nb}}</div>
+                        </a></li>
+                        <li><a routerLink="profilFournisseur" *ngIf="connectedUser.role == 'fournisseur'"><img [src]="connectedUser.img" width="35px" height="35px" style="border-radius: 50px;margin-top: -10px;"></a></li>
+
+                    </ul>
+                </div>
+                
+    <div class="modal fade" id="myModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+
+             <form #LoginForm="ngForm" (ngSubmit)="login()">
+                <div class="form-row">
+                 <h3 style="color:black;margin-bottom: 1cm;margin-left: 4.5cm;margin-top: 1cm;" >S'dentifier</h3><br>
+                   
+                    <div class="form-group col-md-12">
+                        <!-- to way data binding   [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}">-->
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email *" 
+                         [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}">
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <input type="password" class="form-control" id="inputPassword4"
+                            placeholder="Mot de passe *" 
+                             [(ngModel)]="user.password" 
+                             [ngModelOptions]="{standalone:true}">
+                    </div>
+                
+                 
+
+               
+
+                </div>
+
+
+                <div class="regerv_btn">
+                    <!-- event binding -->
+                    <button type="submit" class="site-btn"  style="margin-left: 4.2cm;"  routerLink="home">S'identifier</button>
+                </div>
+            </form>
+            </div>
+            <div class="modal-body">
+              <p>				En vous connectant, vous acceptez les termes et conditions et la politique de confidentialité de Cadeaux.tn.
+		
+                Vous êtes nouveau ?
+                <span routerLink="signup" style="color: red;">
+								
+                    Créer un compte</span></p>
+<div class="row">
+                                <button type="submit" class="site-btn"  style="margin-left: 2.5cm;"  routerLink="signup"> Client</button>
+                                <button type="submit" class="site-btn"  style="margin-left: 1cm;"  routerLink="addFournisseur"> Fournisseur</button>
+
+                            </div>
+            
+            
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+ </div>
+
+  <!-- Search Begin -->
+  <div class="search-model" style="display: none;">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search End -->
+
+
+            </div>
+
+        </div>
+        <div class="canvas__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+
+    
+
+</header>
+
+        
+
+<!-- Header Section End -->
